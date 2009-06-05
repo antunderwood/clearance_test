@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/roleify"]
+	path = vendor/plugins/roleify
+	url = git://github.com/10to1/roleify.git
