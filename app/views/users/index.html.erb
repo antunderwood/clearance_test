@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Confirmed Email?</th>
+    <th>Role</th>
+  <tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.email, user_path(user) %></td>
+      <td><%= user.email_confirmed %></td>
+      <td><%= user.role %></td>
+    </tr>
+  <% end %>
+</table>
+    

@@ -1,0 +1,1773 @@
+  [4;36;1mSQL (17.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 12:16:39) [GET]
+  Parameters: {"name"=>"about"}
+Filter chain halted as [:ensure_valid] rendered_or_redirected.
+Completed in 42ms (View: 17, DB: 0) | 404 Not Found [http://0.0.0.0/]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 12:17:28) [GET]
+  Parameters: {"name"=>"welcome"}
+Rendering page/welcome
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://0.0.0.0/site/welcome]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 12:17:44) [GET]
+  Parameters: {"name"=>"about"}
+Filter chain halted as [:ensure_valid] rendered_or_redirected.
+Completed in 3ms (View: 2, DB: 0) | 404 Not Found [http://0.0.0.0/]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 12:18:17) [GET]
+  Parameters: {"name"=>"welcome"}
+Rendering page/welcome
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (17.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (30.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (45.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090605110702')[0m
+  [4;35;1mSQL (2.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+
+
+Processing Clearance::UsersController#index (for 158.119.175.7 at 2009-06-05 12:24:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"clearance/users"}
+
+ActionController::UnknownAction (No action responded to index. Actions: create and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 158.119.175.7 at 2009-06-05 12:24:48) [GET]
+
+ActionController::RoutingError (No route matches "/sign_in" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 158.119.175.7 at 2009-06-05 12:24:59) [GET]
+
+ActionController::RoutingError (No route matches "/sign_up" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::UsersController#new (for 158.119.175.7 at 2009-06-05 12:25:45) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/users"}
+Rendering users/new
+Rendered users/_form (8.1ms)
+Completed in 84ms (View: 69, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+  [4;36;1mSQL (5.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605121925)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (10.3ms)[0m   [0mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: table users has no column named admin: CREATE INDEX "index_users_on_admin" ON "users" ("admin")[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605130958)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (12.0ms)[0m   [0mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: table users has no column named admin: CREATE INDEX "index_users_on_admin" ON "users" ("admin")[0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605131050)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (16.3ms)[0m   [0mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE INDEX "index_users_on_role" ON "users" ("role")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090605131050')[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_role')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 14:30:43) [GET]
+  Parameters: {"name"=>"welcome"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:30:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 14:31:28) [GET]
+  Parameters: {"name"=>"welcome"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:28) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:28) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:29) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 14:31:35) [GET]
+  Parameters: {"name"=>"welcome"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 14:31:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/session/new]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 14:31:51) [GET]
+  Parameters: {"name"=>"welcome"}
+Rendering page/welcome
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://0.0.0.0/]
+  [4;36;1mUser Exists (3.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (2.4ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('b55d1ebbaa3014e2cede80b00f0f12e44dc17d9a', '7e38c12c829424732c97c0dcc5f28e144a2f110f', '05ab08b8c2a9977cb1ad756ec5dd1cac0e7e45e6', NULL, 'admin', 'email2ants@gmail.com', 'f')[0m
+WARNING: Can't mass-assign these protected attributes: email_confirmed
+  [4;36;1mUser Exists (4.4ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mUser Delete all (71.2ms)[0m   [0mDELETE FROM "users" WHERE ("id" IN (1)) [0m
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+WARNING: Can't mass-assign these protected attributes: email_confirmed
+  [4;36;1mUser Exists (1.8ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.6ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('285ad983bfc12c71cc8585b58e38932e33d4c34e', 'b215d7b4bc06e6ab1feeee38f04d77bbb137ac0a', 'ee5bdd9b0a3ade6443e5b39e7b331df67b67e8b6', NULL, 'admin', 'email2ants@gmail.com', 'f')[0m
+  [4;36;1mUser Load (2.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mUser Delete all (63.7ms)[0m   [0;1mDELETE FROM "users" WHERE ("id" IN (2)) [0m
+WARNING: Can't mass-assign these protected attributes: email_confirmed
+  [4;35;1mUser Exists (3.9ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Create (1.6ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('17d5a26ffebcadfea701774f731253735f501b1f', '5db5db1c0f09a9108e9f576cb2b3eea51d424aeb', '380c1e2bf4ea8c32aae21ae8ec38585392985880', NULL, 'admin', 'email2ants@gmail.com', 'f')[0m
+WARNING: Can't mass-assign these protected attributes: email_confirmed
+  [4;35;1mUser Exists (2.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Delete all (63.5ms)[0m   [0mDELETE FROM "users" WHERE ("id" IN (3)) [0m
+WARNING: Can't mass-assign these protected attributes: email_confirmed
+  [4;36;1mUser Exists (1.6ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.4ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('37e21b54f38c6a3fd5a6661b3cfdb3837fe59ce7', '2079d1fb00e0daca0f9c6689825f3589961ada4d', '1ae641d219f002c01cc2de300e435e1d944e656e', NULL, 'admin', 'email2ants@gmail.com', 'f')[0m
+  [4;36;1mUser Load (2.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Delete all (65.9ms)[0m   [0mDELETE FROM "users" WHERE ("id" IN (4)) [0m
+WARNING: Can't mass-assign these protected attributes: email_confirmed
+  [4;36;1mUser Exists (3.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.6ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('1c591eb95b7046a495100101bc96dfd5077faa6c', 'a1bfc974c958df0a1caee474214f1266e8023ff9', 'd38837dca2f2b0e8919b11a409a761ea2569d1f5', NULL, 'admin', 'email2ants@gmail.com', 'f')[0m
+  [4;36;1mUser Load (2.8ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Delete all (61.6ms)[0m   [0mDELETE FROM "users" WHERE ("id" IN (5)) [0m
+WARNING: Can't mass-assign these protected attributes: email_confirmed
+  [4;36;1mUser Exists (1.9ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (1.6ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('212c60db53588878c439533c43be1d62a0ee6705', 'd8779fe6163c7f992ffd821d38e5e10aad2c07e2', 'c8a53d6d9d5630ccf58cebbf90d1fdf557ea5df6', NULL, 'admin', 'email2ants@gmail.com', 'f')[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Exists (1.8ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'email2ants@gmail.com' AND "users".id <> 6) LIMIT 1[0m
+  [4;36;1mUser Update (1.6ms)[0m   [0;1mUPDATE "users" SET "email_confirmed" = 't' WHERE "id" = 6[0m
+  [4;35;1mUser Load (2.6ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Delete all (70.4ms)[0m   [0mDELETE FROM "users" WHERE ("id" IN (6)) [0m
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 1[0m
+  [4;35;1mUser Exists (2.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mUser Create (1.8ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('1e557db720beb86a81946b705aa586571d1257cb', '5e80391add4fce5007edcfd066aaf6e0e3b3bc92', '7fd1ea39cd98fc05d330542cba37b8f419dddb9a', NULL, 'admin', 'anthony.underwood@hpa.org.uk', 't')[0m
+  [4;35;1mUser Load (11.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mUser Delete all (44.1ms)[0m   [0;1mDELETE FROM "users" WHERE ("id" IN (7)) [0m
+  [4;35;1mUser Exists (1.9ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mUser Create (1.5ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('3508f8dacbf19de06ea63f6b2653c258e2f677c5', '5ae13ce20bee691c999e2043f2bdf36b0c0ed59b', '41d3063f88506eeeee9f4edc216078486a7a4235', NULL, 'admin', 'anthony.underwood@hpa.org.uk', 't')[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605131050)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (13.3ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605131050)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (13.0ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: no such index: index_users_on_role: DROP INDEX "index_users_on_role"[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605131050)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20090605131050'[0m
+  [4;35;1mSQL (2.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605141835)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE INDEX "index_users_on_role" ON "users" ("role")[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090605141835')[0m
+  [4;35;1mSQL (2.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mUser Load (4.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mUser Delete all (48.2ms)[0m   [0;1mDELETE FROM "users" WHERE ("id" IN (8)) [0m
+  [4;35;1mUser Exists (3.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mUser Create (2.3ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('af2b9aaafcb75b0809dc61bcf4187d5e8ffcb62b', '2aba5259644737674a9cb2e3c31112e31a300a67', '2fcefe37975cd3b6563327a59ef909e09869eb90', NULL, 'admin', 'anthony.underwood@hpa.org.uk', 't')[0m
+  [4;35;1mUser Load (2.5ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mUser Delete all (42.2ms)[0m   [0;1mDELETE FROM "users" WHERE ("id" IN (9)) [0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605141835)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (17.4ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605141835)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: no such index: index_users_on_role: DROP INDEX "index_users_on_role"[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605141835)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (8.7ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDROP TABLE "altered_users"[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605141835)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (4.5ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDROP TABLE "altered_users"[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090605141835'[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143008)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143208)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143417)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143417)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143417)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143417)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143418)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (280.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090605143418')[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605143418)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (580.5ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090605143418'[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143418)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (16.1ms)[0m   [0mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE INDEX "index_users_on_role" ON "users" ("role")[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mUser Create (0.7ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('77969a689a8c60e906eea69e478aced161814c4f', 'd1316aece93464b4204bbf9a21838c8f2d56c6c7', '95e4ec5b0207f6d4dddb24510103372d3d663f0c', NULL, 'admin', 'anthony.underwood@hpa.org.uk', 't')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090605143418')[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_role')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mUser Load (4.3ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mSQL (4.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605143418)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605143418)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: no such index: index_users_on_role: DROP INDEX "index_users_on_role"[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605143418)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;35;1mUser Delete all (0.2ms)[0m   [0mDELETE FROM "users" WHERE ("id" IN (1)) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20090605143418'[0m
+  [4;35;1mSQL (2.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mUser Load (4.0ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605144745)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (3.3ms)[0m   [0mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE INDEX "index_users_on_role" ON "users" ("role")[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('9ef35f0d8f491e4d853eb96184fa056eb28909b5', '01bb695e24175258357a189344307b5e20304994', 'e63a067ddfedfbce482018ed1386aaea3b96a7d8', NULL, 'admin', 'anthony.underwood@hpa.org.uk', 't')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090605144745')[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_role')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mUser Load (4.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (5.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."role" = 'admin') [0m
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 16:08:33) [GET]
+  Parameters: {"name"=>"welcome", "action"=>"show", "controller"=>"page"}
+Rendering page/welcome
+Completed in 14ms (View: 10, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ApplicationController#index (for 158.119.175.7 at 2009-06-05 16:08:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+NameError (uninitialized constant UsersController):
+  
+
+Rendered rescues/_trace (55.0ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 16:11:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:admin_only] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 16:11:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering sessions/new
+Completed in 35ms (View: 31, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 16:11:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:admin_only] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 16:11:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering sessions/new
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 16:13:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:admin_only] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 16:13:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering sessions/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#create (for 158.119.175.7 at 2009-06-05 16:14:00) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "authenticity_token"=>"D2i2EAD57ax7afBU+Ye1cj073uq5mBwdwFRuUvbYSeA=", "session"=>{"password"=>"[FILTERED]", "remember_me"=>"0", "email"=>"anthony.underwood@hpa.org.uk"}, "controller"=>"clearance/sessions"}
+  [4;36;1mUser Load (2.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users
+Completed in 42ms (DB: 3) | 302 Found [http://0.0.0.0/session]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 16:14:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" [0m
+
+ActionView::MissingTemplate (Missing template users/index.erb in view path app/views:/usr/lib/ruby/gems/1.8/gems/thoughtbot-clearance-0.6.6/app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 16:59:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering users/index
+Completed in 66ms (View: 11, DB: 4) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#show (for 158.119.175.7 at 2009-06-05 16:59:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering users/show
+
+ActionView::TemplateError (undefined method `show_admin_content?' for #<ActionView::Base:0xb7340b04>) on line #3 of app/views/users/show.html.erb:
+1: <h1><%= mail_to @user.email if signed_in? %></h1>
+2: 
+3: <% if show_admin_content? %>
+4:   <div id="control_block">
+5:     <%= link_to "Edit", edit_user_path(@user) %>
+6:     <%= link_to "Users", users_path %>
+
+    app/views/users/show.html.erb:3
+
+Rendered rescues/_trace (77.7ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 158.119.175.7 at 2009-06-05 17:09:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (2.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering users/show
+Completed in 79ms (View: 12, DB: 5) | 200 OK [http://0.0.0.0/users/2]
+
+
+Processing UsersController#edit (for 158.119.175.7 at 2009-06-05 17:09:20) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+
+ActionView::MissingTemplate (Missing template users/edit.erb in view path app/views:/usr/lib/ruby/gems/1.8/gems/thoughtbot-clearance-0.6.6/app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 17:10:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as [:redirect_to_root] rendered_or_redirected.
+Completed in 87ms (DB: 2) | 302 Found [http://0.0.0.0/users/new]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 17:10:07) [GET]
+  Parameters: {"name"=>"welcome", "action"=>"show", "controller"=>"page"}
+Rendering page/welcome
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ApplicationController#index (for 158.119.175.7 at 2009-06-05 17:10:31) [GET]
+
+ActionController::RoutingError (No route matches "/sign_out" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::SessionsController#destroy (for 158.119.175.7 at 2009-06-05 17:12:52) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"clearance/sessions"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [4;35;1mUser Update (3.9ms)[0m   [0mUPDATE "users" SET "token" = NULL WHERE "id" = 2[0m
+Redirected to http://0.0.0.0:3000/session/new
+Completed in 114ms (DB: 6) | 302 Found [http://0.0.0.0/sign_out]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:12:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering sessions/new
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 17:18:05) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Rendered users/_form (7.1ms)
+Completed in 39ms (View: 22, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 158.119.175.7 at 2009-06-05 17:18:36) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"macheist4ants@gmail.com"}, "commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"OTnTwQAztZV5yaBrLmKBf3dXrlS5Za+lX2ahPJ/PBPk=", "controller"=>"users"}
+  [4;36;1mUser Exists (1.6ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'macheist4ants@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Create (2.5ms)[0m   [0mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('ddb5c9155f550d0654e54813af2e9bfb7d728caa', 'f0bd72d2181cae095100950c010643cb9e51546b', '2e8e371ff673d4ead54d80ec373c7600a8decf2a', NULL, NULL, 'macheist4ants@gmail.com', 'f')[0m
+Sent mail to macheist4ants@gmail.com
+
+From: anthony.underwood@hpa.org.uk
+To: macheist4ants@gmail.com
+Subject: Account confirmation
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+http://0.0.0.0:3000/users/3/confirmation/new?token=2e8e371ff673d4ead54d80ec373c7600a8decf2a
+Redirected to http://0.0.0.0:3000/session/new
+Completed in 570ms (DB: 4) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:18:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering sessions/new
+Completed in 16ms (View: 12, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing Clearance::ConfirmationsController#new (for 158.119.175.7 at 2009-06-05 17:19:20) [GET]
+  Parameters: {"token"=>"[FILTERED]", "action"=>"new", "controller"=>"clearance/confirmations", "user_id"=>"3"}
+  [4;36;1mUser Load (76.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."token" = '2e8e371ff673d4ead54d80ec373c7600a8decf2a' AND "users"."id" = '3') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."token" = '2e8e371ff673d4ead54d80ec373c7600a8decf2a' AND "users"."id" = '3') LIMIT 1[0m
+  [4;35;1mUser Update (47.4ms)[0m   [0mUPDATE "users" SET "email_confirmed" = 't', "token" = NULL WHERE "id" = 3[0m
+Redirected to http://0.0.0.0:3000/
+Completed in 237ms (DB: 126) | 302 Found [http://0.0.0.0/users/3/confirmation/new?token=2e8e371ff673d4ead54d80ec373c7600a8decf2a]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 17:19:20) [GET]
+  Parameters: {"name"=>"welcome", "action"=>"show", "controller"=>"page"}
+Rendering page/welcome
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:19:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:admin_only] rendered_or_redirected.
+Completed in 18ms (DB: 2) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:19:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering sessions/new
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:21:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 22ms (View: 19, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing ApplicationController#index (for 158.119.175.7 at 2009-06-05 17:21:32) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/scaffold.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:22:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 22ms (View: 18, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:22:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:admin_only] rendered_or_redirected.
+Completed in 49ms (DB: 2) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:22:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing ApplicationController#index (for 158.119.175.7 at 2009-06-05 17:24:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+SyntaxError (/home/f0/anthony/rails/clearance_test/app/controllers/users_controller.rb:3: syntax error
+  before_filter :signed_in? :only => [ :edit, :update ]
+                             ^):
+  
+
+Rendered rescues/_trace (60.2ms)
+Rendered rescues/_request_and_response (2.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 158.119.175.7 at 2009-06-05 17:25:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+
+SyntaxError (/home/f0/anthony/rails/clearance_test/app/controllers/users_controller.rb:3: syntax error
+  before_filter :signed_in? :only => [ :edit, :update ]
+                             ^):
+  
+
+Rendered rescues/_trace (136.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:26:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (3.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (2.5ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 89ms (View: 18, DB: 6) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:29:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 74ms (View: 19, DB: 4) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:34:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (6.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (2.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 79ms (View: 53, DB: 9) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:34:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (4.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 28ms (View: 10, DB: 7) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:43:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 49ms (DB: 2) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:43:32) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 39ms (View: 33, DB: 2) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 17:43:48) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Load (4.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as [:redirect_to_root] rendered_or_redirected.
+Completed in 26ms (DB: 5) | 302 Found [http://0.0.0.0/users/new]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 17:43:49) [GET]
+  Parameters: {"name"=>"welcome", "action"=>"show", "controller"=>"page"}
+Rendering template within layouts/application
+Rendering page/welcome
+  [4;35;1mUser Load (2.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Completed in 58ms (View: 48, DB: 3) | 200 OK [http://0.0.0.0/]
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605144745)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (72.1ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: no such index: index_users_on_role: DROP INDEX "index_users_on_role"[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRoleToUser (20090605144745)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL, "role" varchar(255)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_role')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_role" ON "altered_users" ("role")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_token" ON "altered_users" ("token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "temp_index_altered_users_on_email" ON "altered_users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "temp_index_altered_users_on_id_and_token" ON "altered_users" ("id", "token")[0m
+  [4;35;1mSQL (16.1ms)[0m   [0mDROP TABLE "users"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "encrypted_password" varchar(128), "salt" varchar(128), "token" varchar(128), "token_expires_at" datetime, "email_confirmed" boolean DEFAULT 'f' NOT NULL) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("altered_users")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_id_and_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_email')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('temp_index_altered_users_on_token')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('temp_index_altered_users_on_role')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_id_and_token" ON "users" ("id", "token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_users_on_token" ON "users" ("token")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP TABLE "altered_users"[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;35;1mUser Delete all (0.2ms)[0m   [0mDELETE FROM "users" WHERE ("id" IN (2)) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20090605144745'[0m
+  [4;35;1mSQL (2.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to ClearanceCreateUsers (20090605110702)
+Migrating to AddRoleToUser (20090605144745)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (6.2ms)[0m   [0mALTER TABLE "users" ADD "role" varchar(255) DEFAULT 'user'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE INDEX "index_users_on_role" ON "users" ("role")[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('6e3ca20ff247caab3cd3448bf30d8b4103e382cd', '8c73010e706a1cbc493988b38a017de17b5f93a4', '6c2e8a5547b73d8d52e22080d16a9ef316b0963d', NULL, 'admin', 'anthony.underwood@hpa.org.uk', 't')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090605144745')[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_role')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_token')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_users_on_id_and_token')[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (2.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Delete all (48.6ms)[0m   [0;1mDELETE FROM "users" WHERE ("id" IN (3)) [0m
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 17:48:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 46ms (DB: 2) | 302 Found [http://0.0.0.0/users/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:48:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.email) on line #11 of app/views/layouts/application.html.erb:
+8: <body>
+9: 
+10: <p style="color: green"><%= flash[:notice] %></p>
+11: <p>logged in as <%= current_user.email %></p>
+12: <%= yield %>
+13: 
+14: </body>
+
+    app/views/layouts/application.html.erb:11
+    /usr/lib/ruby/gems/1.8/gems/thoughtbot-clearance-0.6.6/app/controllers/clearance/sessions_controller.rb:8:in `new'
+
+Rendered rescues/_trace (81.0ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Clearance::SessionsController#destroy (for 158.119.175.7 at 2009-06-05 17:48:22) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"clearance/sessions"}
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/session/new
+Completed in 21ms (DB: 2) | 302 Found [http://0.0.0.0/sign_out]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:48:22) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.email) on line #11 of app/views/layouts/application.html.erb:
+8: <body>
+9: 
+10: <p style="color: green"><%= flash[:notice] %></p>
+11: <p>logged in as <%= current_user.email %></p>
+12: <%= yield %>
+13: 
+14: </body>
+
+    app/views/layouts/application.html.erb:11
+    /usr/lib/ruby/gems/1.8/gems/thoughtbot-clearance-0.6.6/app/controllers/clearance/sessions_controller.rb:8:in `new'
+
+Rendered rescues/_trace (155.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:49:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 13ms (View: 9, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 17:49:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Redirected to http://0.0.0.0:3000/session/new
+Filter chain halted as [:allowed?] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://0.0.0.0/users/new]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 17:49:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#create (for 158.119.175.7 at 2009-06-05 17:51:02) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "authenticity_token"=>"k9Im1HaTCu8sc5dpwmz0lmViTMhgT1L33ReT/GnisyM=", "session"=>{"password"=>"[FILTERED]", "remember_me"=>"0", "email"=>"email2ants@gmail.com"}, "controller"=>"clearance/sessions"}
+  [4;36;1mUser Load (2.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'email2ants@gmail.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new (unauthorized)
+Completed in 26ms (View: 4, DB: 3) | 401 Unauthorized [http://0.0.0.0/session]
+
+
+Processing Clearance::SessionsController#create (for 158.119.175.7 at 2009-06-05 17:51:13) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "authenticity_token"=>"k9Im1HaTCu8sc5dpwmz0lmViTMhgT1L33ReT/GnisyM=", "session"=>{"password"=>"[FILTERED]", "remember_me"=>"0", "email"=>"anthony.underwood@hpa.org.uk"}, "controller"=>"clearance/sessions"}
+  [4;35;1mUser Load (2.9ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'anthony.underwood@hpa.org.uk') LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/new
+Completed in 27ms (DB: 3) | 302 Found [http://0.0.0.0/session]
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 17:51:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Load (2.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as [:redirect_to_root] rendered_or_redirected.
+Completed in 18ms (DB: 2) | 302 Found [http://0.0.0.0/users/new]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 17:51:14) [GET]
+  Parameters: {"name"=>"welcome", "action"=>"show", "controller"=>"page"}
+Rendering template within layouts/application
+Rendering page/welcome
+  [4;35;1mUser Load (2.7ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Completed in 38ms (View: 31, DB: 3) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 17:51:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 36ms (View: 13, DB: 4) | 200 OK [http://0.0.0.0/users]
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 17:51:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Filter chain halted as [:redirect_to_root] rendered_or_redirected.
+Completed in 17ms (DB: 2) | 302 Found [http://0.0.0.0/users/new]
+
+
+Processing PageController#show (for 158.119.175.7 at 2009-06-05 17:51:23) [GET]
+  Parameters: {"name"=>"welcome", "action"=>"show", "controller"=>"page"}
+Rendering template within layouts/application
+Rendering page/welcome
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Completed in 91ms (View: 85, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#index (for 158.119.175.7 at 2009-06-05 18:00:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 29ms (View: 4, DB: 4) | 200 OK [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#destroy (for 158.119.175.7 at 2009-06-05 18:00:50) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"clearance/sessions"}
+  [4;36;1mUser Load (2.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+  [4;35;1mUser Update (313.0ms)[0m   [0mUPDATE "users" SET "token" = NULL WHERE "id" = 4[0m
+Redirected to http://0.0.0.0:3000/session/new
+Completed in 669ms (DB: 315) | 302 Found [http://0.0.0.0/sign_out]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 18:00:51) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/session/new]
+
+
+Processing Clearance::SessionsController#create (for 158.119.175.7 at 2009-06-05 18:01:22) [POST]
+  Parameters: {"commit"=>"Sign in", "action"=>"create", "authenticity_token"=>"G8V+ho5Ws6H7RpcvBueytuE4dUN3sf+1J0jmLR4wlW0=", "session"=>{"password"=>"[FILTERED]", "remember_me"=>"0", "email"=>"macheist4ants@gmail.com"}, "controller"=>"clearance/sessions"}
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'macheist4ants@gmail.com') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new (unauthorized)
+Completed in 26ms (View: 4, DB: 2) | 401 Unauthorized [http://0.0.0.0/session]
+
+
+Processing UsersController#new (for 158.119.175.7 at 2009-06-05 18:01:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (5.6ms)
+Completed in 39ms (View: 21, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 158.119.175.7 at 2009-06-05 18:01:53) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"macheist4ants@gmail.com"}, "commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"G8V+ho5Ws6H7RpcvBueytuE4dUN3sf+1J0jmLR4wlW0=", "controller"=>"users"}
+  [4;35;1mUser Exists (1.6ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'macheist4ants@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Create (554.0ms)[0m   [0;1mINSERT INTO "users" ("encrypted_password", "salt", "token", "token_expires_at", "role", "email", "email_confirmed") VALUES('95f7dbb932bf3d59fc854e18cf828799bfbb0fa7', 'cefc37560dde8fca56158e12eb081ab160bb8cc5', '1c9eb536da4ab397db56937d3036e8c6126861b7', NULL, 'user', 'macheist4ants@gmail.com', 'f')[0m
+Sent mail to macheist4ants@gmail.com
+
+From: anthony.underwood@hpa.org.uk
+To: macheist4ants@gmail.com
+Subject: Account confirmation
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+
+http://0.0.0.0:3000/users/5/confirmation/new?token=1c9eb536da4ab397db56937d3036e8c6126861b7
+Redirected to http://0.0.0.0:3000/session/new
+Completed in 3412ms (DB: 556) | 302 Found [http://0.0.0.0/users]
+
+
+Processing Clearance::SessionsController#new (for 158.119.175.7 at 2009-06-05 18:01:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 17ms (View: 11, DB: 0) | 200 OK [http://0.0.0.0/session/new]
